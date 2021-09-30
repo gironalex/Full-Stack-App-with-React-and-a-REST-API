@@ -12,14 +12,13 @@ import '../src/styles/reset.css';
 import '../src/styles/global.css';
 
 // Import Main Component
-import App from './App';
-
-
+import App from './components/App';
+import Provider from './Context';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
