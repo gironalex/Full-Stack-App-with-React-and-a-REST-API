@@ -6,7 +6,7 @@
  import Data from './Data';
 
  // Creating context instance
- const Context = React.createContext();
+ export const contextAPI = React.createContext();
 
  export default class Provider extends Component {
 
@@ -31,9 +31,9 @@
       }
 
       return (
-        <Context.Provider value = {value}>
+        <contextAPI.Provider value = {value}>
             {this.props.children}
-        </Context.Provider>
+        </contextAPI.Provider>
       );
     }
 
@@ -63,4 +63,4 @@
 
 }
 
-export const Consumer = Context.Consumer;
+export const Consumer = contextAPI.Consumer;

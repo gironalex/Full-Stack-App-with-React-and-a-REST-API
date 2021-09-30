@@ -1,12 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
+
+// Import components
+import Header from './Header.js';
 
 class App extends Component {
 
   render () {
     return (
-      <div>
-       {console.log(3)}
-      </div>
+      <Router>
+        <div>
+          <Header />
+
+        </div>
+      </Router>
     );
   } 
 }
