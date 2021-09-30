@@ -17,16 +17,16 @@
     constructor () {
       super();
       this.data = new Data();
-      this.cookie = Cookies.get('authUser');
+      this.cookie = Cookies.get('authedUser');
       this.state = {
-          authUser: this.cookie ? JSON.parse(this.cookie) : null
+          authedUser: this.cookie ? JSON.parse(this.cookie) : null
       };
     }
 
     render () {
-      const { authUser } = this.state;
+      const { authedUser } = this.state;
       const value = {
-          authUser,
+          authedUser,
           data: this.data,
           actions: {
               signIn: this.signIn,
@@ -47,11 +47,11 @@
 
       if (user !== null) {
         this.setState(() => {
-            return {authUser: user}
+            return {authedUser: user}
         })
 
         // Setting cookie
-        Cookies.set('authUser', JSON.stringify(user), {expires: 1})
+        Cookies.set('authedUser', JSON.stringify(user), {expires: 1})
       }
 
       return user
@@ -59,12 +59,12 @@
 
     // Removes authenticated user and password from the global state
     signOut = () => {
-      this.setState({authUser: null})
+      this.setState({authedUser: null})
 
       // Removing cookie
-      Cookies.remove('authUser');
+      Cookies.remove('authedUser');
     }
-    
+
  }
 
  export const Consumer = Context.Consumer;
