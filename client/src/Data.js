@@ -21,7 +21,7 @@ export default class Data {
 
     // Checking if Authorization is required, setting Authorization header if true
     if (requiresAuth) {    
-      const encodedCredentials = btoa(`${credentials.username}:${credentials.password}`);
+      const encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
       options.headers['Authorization'] = `Basic ${encodedCredentials}`;
     }
 
@@ -33,8 +33,8 @@ export default class Data {
   ***************/
 
   // GET Request for retrieving an existing user's information [Authenticated & Authorized Users]
-  async getUser(username, password) {
-    const response = await this.api(`/users`, 'GET', null, true, { username, password });
+  async getUser(emailAddress, password) {
+    const response = await this.api(`/users`, 'GET', null, true, { emailAddress, password });
     
     if (response.status === 200) {
       return response.json().then(data => data);
@@ -89,8 +89,8 @@ export default class Data {
   }
 
   // POST Request to create new course [Authenticated Users]
-  async createNewCourse(course, username, password) {
-    const response = await this.api(`/courses`, 'POST', course, true, { username, password });
+  async createNewCourse(course, emailAddress, password) {
+    const response = await this.api(`/courses`, 'POST', course, true, { emailAddress, password });
     
     if (response.status === 201) {
         return [];
@@ -102,8 +102,8 @@ export default class Data {
     }
 
   // PUT Request to update a particular course [Authenticated & Authorized Users]
-  async updateCourse(id, course, username, password) {
-    const response = await this.api(`/courses/${id}`, 'PUT', course, true, { username, password });
+  async updateCourse(id, course, emailAddress, password) {
+    const response = await this.api(`/courses/${id}`, 'PUT', course, true, { emailAddress, password });
 
     if (response.status === 204) {
         return [];
@@ -115,8 +115,8 @@ export default class Data {
     }
 
   // DELETE Request to delete a course [Authenticated & Authorized Users]
-  async deleteCourse(id, username, password) {
-    const response = await this.api(`/courses/${id}`, 'DELETE', null, true, { username, password });
+  async deleteCourse(id, emailAddress, password) {
+    const response = await this.api(`/courses/${id}`, 'DELETE', null, true, { emailAddress, password });
 
     if (response.status === 204) {
         return [];
