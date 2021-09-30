@@ -1,7 +1,3 @@
-/********
-  CONTEXT
- ********/
-
  // Import Modules
  import React, { Component } from 'react';
  import Cookies from 'js-cookie';
@@ -12,7 +8,7 @@
  // Creating context instance
  const Context = React.createContext();
 
- export class Provider extends Component {
+ export default class Provider extends Component {
 
     constructor () {
       super();
@@ -65,6 +61,6 @@
       Cookies.remove('authedUser');
     }
 
- }
+}
 
- export const Consumer = Context.Consumer;
+export const Consumer = Context.Consumer;
