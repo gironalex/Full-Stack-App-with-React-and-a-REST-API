@@ -28,8 +28,8 @@ const Header = () => {
                 /* If the user has NOT been authenticated, show a sign up and sign in button links */
                 <React.Fragment>
                   <ul className="header--signedout">
-                    <Link classname="singup" to="/signup"> Sign Up </Link>
-                    <Link classname="singin" to="/signin"> Sign In </Link>
+                    <Link className="singup" to="/signup"> Sign Up </Link>
+                    <Link className="singin" to="/signin"> Sign In </Link>
                   </ul>
                 </React.Fragment>  
                 )

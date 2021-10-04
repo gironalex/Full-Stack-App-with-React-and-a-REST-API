@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
+  Switch,
+  Route
 } from 'react-router-dom';
 
 // Import components
 import Header from './Header.js';
+import Courses from './Courses.js';
 
 class App extends Component {
 
@@ -14,6 +17,10 @@ class App extends Component {
         <div>
           <Header />
 
+          <Switch>
+            <Route exact path="/" component={Courses} />
+          
+          </Switch>
         </div>
       </Router>
     );
