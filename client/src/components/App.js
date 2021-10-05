@@ -8,6 +8,7 @@ import {
 // Import components
 import Header from './Header.js';
 import Courses from './Courses.js';
+import CoursesDetail from './CoursesDetail';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={Courses} />
-          
+            <Route path= "/courses/:id" component={CoursesDetail} />
           </Switch>
         </div>
       </Router>
