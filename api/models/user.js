@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       validate:{
         isEmail: {
-          msg: 'Valid Email Address must be provided'
+          msg: 'Valid Email Address structure must be provided'
         },
         notNull:{
           msg: 'An email address is required'
