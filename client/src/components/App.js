@@ -10,6 +10,7 @@ import Header from './Header.js';
 import Courses from './Courses.js';
 import CoursesDetail from './CoursesDetail';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/" component={Courses} />
             <Route path= "/courses/:id" component={CoursesDetail} />
             <Route path= "/signin" component={SignIn} />
+            <Route path= "/signup" component={SignUp} />
           </Switch>
         </div>
       </Router>

@@ -17,7 +17,7 @@ const SignIn = () => {
 
     // URL History
     const history = useHistory();
-    const {from} = history.location.state || {from: {pathname: "/"}};
+    const {from} = history.location.state || {from: {pathname: '/'}};
     
     // Handle Form Submission
     const handleSubmit = (e) => {
@@ -30,10 +30,10 @@ const SignIn = () => {
         } else if (!password) {
             setErrors('Please type a password')
         } else {
-            context.actions.SignIn(emailAddress, password)
+            context.actions.signIn(emailAddress, password)
               .then( user => {
                 if (user === null) {
-                    setErrors('Sign In was unsuccessful');
+                    setErrors('Sign-In was unsuccessful, double check your email and password inputs or create an account!');
                 } else {
                     history.push(from);
                     console.log(`Success! ${emailAddress} is now signed in.`);
@@ -67,7 +67,6 @@ const SignIn = () => {
                 : 
                 null
             }
-
             <form onSubmit= { (e) => {
                 e.preventDefault();
                 handleSubmit();
