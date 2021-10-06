@@ -15,7 +15,7 @@
       this.data = new Data();
       this.cookie = Cookies.get('authedUser');
       this.state = {
-          authedUser: this.cookie ? JSON.parse(this.cookie) : null
+          authedUser: this.cookie ? JSON.parse(this.cookie) : null,
       };
     }
 
@@ -43,7 +43,7 @@
 
       if (user !== null) {
         this.setState(() => {
-            return {authedUser: user}
+            return { authedUser: user }
         })
 
         // Setting cookie
