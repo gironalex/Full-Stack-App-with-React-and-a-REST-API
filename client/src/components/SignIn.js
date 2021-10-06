@@ -22,7 +22,8 @@ const SignIn = () => {
     // Handle Form Submission
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
+        // Ensuring input fields have been properly filled
         if (!emailAddress && !password) {
             setErrors('Please type a valid email address & password');
         } else if (!emailAddress) {
@@ -30,10 +31,11 @@ const SignIn = () => {
         } else if (!password) {
             setErrors('Please type a password')
         } else {
+            //Signing in after input test validation
             context.actions.signIn(emailAddress, password)
-              .then( user => {
-                if (user === null) {
-                    setErrors('Sign-In was unsuccessful, double check your email and password inputs or create an account!');
+              .then(res => {
+                if (res === null) {
+                  setErrors('Sign-In was unsuccessful, double check your email and password inputs or create an account!');
                 } else {
                     history.push(from);
                     console.log(`Success! ${emailAddress} is now signed in.`);

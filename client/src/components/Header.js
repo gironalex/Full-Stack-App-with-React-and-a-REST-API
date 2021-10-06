@@ -19,7 +19,7 @@ const Header = () => {
                 
                 /* If the user has been authenticated, show a welcome message + signout button link*/
                 <React.Fragment>
-                  <span>Welcome, {authedUser.name}! </span>
+                  <span>Welcome, {authedUser.firstName}! </span>
                   <Link className="signout" to="/signout">Sign Out</Link>
                 </React.Fragment>
                 )
