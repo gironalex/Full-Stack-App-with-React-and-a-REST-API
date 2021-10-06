@@ -72,12 +72,12 @@ const SignIn = () => {
                 e.preventDefault();
                 handleSubmit();
             }}>
-                <label for="emailAddress">Email Address</label>
+                <label htmlFor="emailAddress">Email Address</label>
                 <input id="emailAddress" name="emailAddress" type="email" value={emailAddress} onChange={(e)=> setEmailAddress(e.target.value)}></input>
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input id="password" name="password" type="password" value={password} onChange={(e)=> setPassword(e.target.value)}></input>
                 <button className="button" type="submit" onClick={handleSubmit}>Sign In</button>
-                <button className="button button-secondary" onclick={handleCancel}>Cancel</button>
+                <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
             <p>Don't have a user account? Click here to <Link to="/signup">sign up</Link>!</p>
         </div>
