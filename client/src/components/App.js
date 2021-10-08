@@ -31,6 +31,7 @@ class App extends Component {
             <Route path= "/signin" component={SignIn} />
             <Route path= "/signup" component={SignUp} />
             <Route path= "/signout" component={SignOut} />
+            <Route path="/not-found" component={NotFound} />
             <Route path= "/error" component={Error} />
             <Route component={NotFound} />
           </Switch>
