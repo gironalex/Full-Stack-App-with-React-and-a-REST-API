@@ -49,7 +49,6 @@
         // Setting cookie
         Cookies.set('authedUser', JSON.stringify(user), {expires: 1})
       }
-
       return user
     }
 

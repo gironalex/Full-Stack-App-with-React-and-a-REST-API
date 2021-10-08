@@ -13,7 +13,7 @@ const CoursesDetail = () => {
 
     // Data from Context
     const context = useContext(contextAPI);
-    const { signedIn } = context;
+    const signedIn = context.authedUser;
 
 
     // URL History
@@ -51,7 +51,7 @@ const CoursesDetail = () => {
         <div className="actions--bar">
             <div className="wrap">
                 {/* Rendering the delete and update course button if the user has been authorized*/}
-                { signedIn && signedIn.id === user.id ? 
+                { signedIn && signedIn.id === user.id ? (
                     <React.Fragment> 
                       <Link className="button" to={`/courses/${id}/update`}>Update Course</Link>
                       <Link className="button" onClick={(e) => {
@@ -60,11 +60,11 @@ const CoursesDetail = () => {
                           }} to={`/`} > Delete Course</Link>
                       <Link className="button button-secondary" to="/">Return to List</Link>                    
                     </React.Fragment>
-                    :
+                ):(
                     <React.Fragment> 
                       <Link className="button button-secondary" to="/">Return to List</Link>                    
                     </React.Fragment>
-                }
+                )}
             </div>
         </div>
         
