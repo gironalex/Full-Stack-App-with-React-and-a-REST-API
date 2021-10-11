@@ -10,12 +10,14 @@ import Header from './Header.js';
 import Courses from './Courses.js';
 import CoursesDetail from './CoursesDetail';
 import CreateCourse from './CreateCourse.js';
+import UpdateCourse from './UpdateCourse';
+import DeleteCourse from './DeleteCourse';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import SignOut from './SignOut';
 import NotFound from './NotFound';
 import Error from './Error';
-// import Forbidden from './Forbidden';
+import Forbidden from './Forbidden';
 
 class App extends Component {
 
@@ -26,14 +28,16 @@ class App extends Component {
           <Header />
 
           <Switch>
-            <Route exact path="/" component={Courses} />
+            <Route exact path= "/" component={Courses} />
             <Route path= "/courses/create" component={CreateCourse}/>
             <Route path= "/courses/:id" component={CoursesDetail} />
+            <Route path= "/courses/:id/update" component={UpdateCourse} />
+            <Route path= "/courses/:id/delete" component={DeleteCourse} />
             <Route path= "/signin" component={SignIn} />
             <Route path= "/signup" component={SignUp} />
             <Route path= "/signout" component={SignOut} />
-            <Route path="/not-found" component={NotFound} />
-            {/* <Route path="/forbidden" component={Forbidden} />  */}
+            <Route path= "/not-found" component={NotFound} />
+            <Route path= "/forbidden" component={Forbidden} />
             <Route path= "/error" component={Error} />
             <Route component={NotFound} />
           </Switch>

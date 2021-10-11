@@ -15,7 +15,6 @@ const CoursesDetail = () => {
     const context = useContext(contextAPI);
     const signedIn = context.authedUser;
 
-
     // URL History
     const history = useHistory();
     const { id } = useParams();
@@ -34,18 +33,6 @@ const CoursesDetail = () => {
         .catch( () => history.push('/error'));
     }, [id, context.data, history])
 
-    // DELETE COURSE - WORK NEEDED
-    const handleDeleteCourse = () => {
-        context.data.deleteCourse(id, signedIn.emailAddress, signedIn.password)
-          .then( () => {
-            history.push('/');
-            console.log(`Course titled, '${course.title},' was successfully deleted`);
-          })
-          .catch( (error) => {
-            history.push('/error');
-            console.log(error);
-          });
-    }
     return (
         <main>
         <div className="actions--bar">
@@ -54,10 +41,7 @@ const CoursesDetail = () => {
                 { signedIn && signedIn.id === user.id ? (
                     <React.Fragment> 
                       <Link className="button" to={`/courses/${id}/update`}>Update Course</Link>
-                      <Link className="button" onClick={(e) => {
-                          e.preventDefault();
-                          handleDeleteCourse();
-                          }} to={`/`} > Delete Course</Link>
+                      <Link className="button" to={`/courses/${id}/delete`} > Delete Course</Link>
                       <Link className="button button-secondary" to="/">Return to List</Link>                    
                     </React.Fragment>
                 ):(

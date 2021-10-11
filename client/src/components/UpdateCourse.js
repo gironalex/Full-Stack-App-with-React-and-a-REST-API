@@ -1,10 +1,10 @@
 // Import Modules
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { contextAPI } from '../Context.js';
 
-// CreateCourse Component
-const CreateCourse = () => {
+// UpdateCourse Component
+const UpdateCourse = () => {
 
     // Setting State
     const [title, setTitle] = useState("");
@@ -20,11 +20,30 @@ const CreateCourse = () => {
 
     // URL History
     const history = useHistory();
+    const { id } = useParams();
+
+    // Fetching Course to Update
+    useEffect(() => {
+        context.data.getCourseDetails(id)
+            .then(res => {
+              if (!res) {
+                  history.push('/not-found');
+              } else if (res & res.id === userId) {
+                 setTitle(res.title);
+                 setDescription(res.description);
+                 setEstimatedTime(res.estimatedTime);
+                 setMaterialsNeeded(res.materialsNeeded);
+              } else {
+                  history.push('forbidden');
+              }
+            })
+            .catch( () => history.push('/error'));
+    }, [id, userId, context.data, history])
     
     // Handle Form Submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         // Data to be passed to the database
         const course = {
             title,
@@ -36,22 +55,17 @@ const CreateCourse = () => {
 
         if (signedIn){
           // Posting course data to the database
-          context.data.createNewCourse(course, signedIn.emailAddress, signedIn.password)
+          context.data.UpdateCourse(course, id, signedIn.emailAddress, signedIn.password)
             .then( (errors) => {
               if (errors.length) {
                 setErrors(errors);
               } else {
-                // 
-                context.data.getCourses()
-                  .then( courseData => {
-                    let createdCourse = courseData[courseData.length-1];
-                    history.push(`/courses/` + createdCourse.id)
-                  });
-              }                      
-            })
+                  history.push(`/courses/` + id)
+                }
+              })                      
             .catch((err) => {
               history.push('/error');
-              console.log('Error with Creating Course', err);
+              console.log('Error with Updating Course', err);
           });             
         }
     }
@@ -65,7 +79,7 @@ const CreateCourse = () => {
     return (
       <main>
         <div className="wrap">
-            <h2>Create Course</h2>
+            <h2>Update Course</h2>
             { 
               errors.length ? 
                 <div className="validation--errors">
@@ -108,4 +122,4 @@ const CreateCourse = () => {
     )
 }
 
-export default CreateCourse;
+export default UpdateCourse;
