@@ -15,6 +15,7 @@ import SignUp from './SignUp';
 import SignOut from './SignOut';
 import NotFound from './NotFound';
 import Error from './Error';
+// import Forbidden from './Forbidden';
 
 class App extends Component {
 
@@ -26,12 +27,13 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={Courses} />
-            <Route path= "/courses/:id" component={CoursesDetail} />
             <Route path= "/courses/create" component={CreateCourse}/>
+            <Route path= "/courses/:id" component={CoursesDetail} />
             <Route path= "/signin" component={SignIn} />
             <Route path= "/signup" component={SignUp} />
             <Route path= "/signout" component={SignOut} />
             <Route path="/not-found" component={NotFound} />
+            {/* <Route path="/forbidden" component={Forbidden} />  */}
             <Route path= "/error" component={Error} />
             <Route component={NotFound} />
           </Switch>

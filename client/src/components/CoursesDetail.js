@@ -20,7 +20,7 @@ const CoursesDetail = () => {
     const history = useHistory();
     const { id } = useParams();
     
-    // Fetching Courses
+    // Fetching Course
     useEffect(() => {
       context.data.getCourseDetails(id)
         .then( res => {
