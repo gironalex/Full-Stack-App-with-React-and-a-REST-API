@@ -17,7 +17,7 @@ const SignIn = () => {
 
     // URL History
     const history = useHistory();
-    const {from} = history.location.state || {from: {pathname: '/'}};
+    //const {from} = history.location.state || {from: {pathname: '/'}};
     
     // Handle Form Submission
     const handleSubmit = (e) => {
@@ -37,7 +37,7 @@ const SignIn = () => {
                 if (res === null) {
                   setErrors('Sign-In was unsuccessful, double check your email and password inputs or create an account!');
                 } else {
-                    history.push(from);
+                    history.goBack();
                     console.log(`Success! ${emailAddress} is now signed in.`);
                 }   
               })

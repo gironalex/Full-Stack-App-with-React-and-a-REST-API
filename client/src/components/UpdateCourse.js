@@ -27,7 +27,7 @@ const UpdateCourse = () => {
         context.data.getCourseDetails(id)
             .then(res => {
               if (!res) {
-                  history.push('/not-found');
+                  history.push('/notfound');
               } else if (res & res.id === userId) {
                  setTitle(res.title);
                  setDescription(res.description);

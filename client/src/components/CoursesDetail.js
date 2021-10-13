@@ -27,7 +27,7 @@ const CoursesDetail = () => {
             setCourseData(res);
             setUser(res.User);              
           } else {
-              history.push('/not-found')
+              history.push('/notfound')
           }
         })
         .catch( () => history.push('/error'));

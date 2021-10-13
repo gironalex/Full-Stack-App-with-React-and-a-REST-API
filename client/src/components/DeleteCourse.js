@@ -24,7 +24,7 @@ const DeleteCourse = () => {
         context.data.getCourseDetails(id)
             .then(res => {
               if (!res) {
-                  history.push('/not-found');
+                  history.push('/notfound');
               } else if (res & res.id === userId) {
                   setUser(res.User);
                   setCourseData(res);
