@@ -15,6 +15,7 @@ import DeleteCourse from './DeleteCourse';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import SignOut from './SignOut';
+import PrivateRoute from '../PrivateRoute';
 import NotFound from './NotFound';
 import Error from './Error';
 import Forbidden from './Forbidden';
@@ -29,10 +30,10 @@ class App extends Component {
 
           <Switch>
             <Route exact path= "/" component={Courses} />
-            <Route path= "/courses/create" component={CreateCourse}/>
+            <PrivateRoute path= "/courses/create" component={CreateCourse}/>
             <Route path= "/courses/:id" component={CoursesDetail} />
-            <Route path= "/courses/:id/update" component={UpdateCourse} />
-            <Route path= "/courses/:id/delete" component={DeleteCourse} />
+            <PrivateRoute path= "/courses/:id/update" component={UpdateCourse} />
+            <PrivateRoute path= "/courses/:id/delete" component={DeleteCourse} />
             <Route path= "/signin" component={SignIn} />
             <Route path= "/signup" component={SignUp} />
             <Route path= "/signout" component={SignOut} />
