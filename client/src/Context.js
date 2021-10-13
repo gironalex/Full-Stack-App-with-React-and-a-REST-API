@@ -43,7 +43,11 @@
 
       if (user !== null) {
         this.setState(() => {
-            return { authedUser: user }
+            user.emailAddress = emailAddress;
+            user.password = password;
+            return { 
+              authedUser: user, 
+            }
         })
 
         // Setting cookie

@@ -17,6 +17,9 @@ const CreateCourse = () => {
     const context = useContext(contextAPI);
     const signedIn = context.authedUser;
     const userId = signedIn.id;
+    console.log(context.authedUser);
+    console.log(signedIn);
+    console.log(userId);
 
     // URL History
     const history = useHistory();
@@ -33,14 +36,15 @@ const CreateCourse = () => {
             materialsNeeded,
             userId
         };
+        console.log(course);
 
         if (signedIn){
           // Posting course data to the database
           context.data.createNewCourse(course, signedIn.emailAddress, signedIn.password)
-            .then( (errors) => {
+            .then( errors => {
               if (errors.length) {
                 setErrors(errors);
-              } else {
+              } else  {
                 // 
                 context.data.getCourses()
                   .then( courseData => {
@@ -65,7 +69,7 @@ const CreateCourse = () => {
     return (
       <main>
         <div className="wrap">
-            <h2>Create Course</h2>
+            <h2>Create Course</h2>     
             { 
               errors.length ? 
                 <div className="validation--errors">
