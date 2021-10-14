@@ -16,9 +16,13 @@ const CreateCourse = () => {
     // Data from Context
     const context = useContext(contextAPI);
     const signedIn = context.authedUser;
-    const userId = signedIn.id;
+    const {userId} = signedIn;
+
+    /*********
+     * TESTING
+     *********/
     console.log(context.authedUser);
-    console.log(signedIn);
+    console.log(signedIn.password);
     console.log(userId);
 
     // URL History
