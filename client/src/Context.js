@@ -44,8 +44,8 @@
 
       if (user !== null) {
         this.setState(() => {
+          user.password = password;
             return {
-              password: user.password,
               authedUser: user,               
             }
         })
