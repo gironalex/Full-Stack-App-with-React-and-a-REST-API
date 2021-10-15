@@ -16,7 +16,7 @@ const CreateCourse = () => {
     // Data from Context
     const context = useContext(contextAPI);
     const signedIn = context.authedUser;
-    const {userId} = signedIn;
+    const userId = signedIn.id;
 
     /*********
      * TESTING

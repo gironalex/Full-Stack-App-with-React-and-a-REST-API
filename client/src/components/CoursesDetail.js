@@ -33,6 +33,12 @@ const CoursesDetail = () => {
         .catch( () => history.push('/error'));
     }, [id, context.data, history])
 
+
+    /**
+     * TESTING
+     */
+    console.log(signedIn);
+
     return (
         <main>
         <div className="actions--bar">

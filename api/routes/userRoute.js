@@ -12,14 +12,19 @@ const { authenticateUser } = require('../middleware/auth-user');
 
 /* User GET route to provide details of the current Authenticated User */
 router.get('/users', authenticateUser, asyncHandler( async (req, res) => {
-    const user = req.currentUser;
-
-    res.status(200).json({
-      firstName: user.firstName,
-      lastName: user.lastName,
-      emailAddress: user.emailAddress,
-      userId: user.id,
+    const user = await User.findOne({
+        where: {
+            emailAddress: req.currentUser.emailAddress
+        },
+        attributes: {
+            exclude: [
+                "password",
+                "createdAt",
+                "updatedAt"
+            ],
+        },
     })
+    res.status(200).json(user)
 }));
 
 /* User POST route for the creation of new users. Ensuring that the password provided is encrypted prior to storing in database  */

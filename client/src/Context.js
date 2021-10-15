@@ -17,7 +17,6 @@
       this.state = {
           authedUser: this.cookie ? JSON.parse(this.cookie) : null,
           password: '',
-          userId: '',
       };
     }
 
@@ -45,10 +44,9 @@
 
       if (user !== null) {
         this.setState(() => {
-            return {               
+            return {
               password: user.password,
-              userId: user.userId, 
-              authedUser: user,
+              authedUser: user,               
             }
         })
 
