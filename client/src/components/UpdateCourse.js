@@ -54,9 +54,10 @@ const UpdateCourse = () => {
             userId
         };
 
+        console.log(course);
         if (signedIn){
           // Posting course data to the database
-          context.data.updateCourse(course, id, signedIn.emailAddress, signedIn.password)
+          context.data.updateCourse(id, course, signedIn.emailAddress, signedIn.password)
             .then( (errors) => {
               if (errors.length) {
                 setErrors(errors);
