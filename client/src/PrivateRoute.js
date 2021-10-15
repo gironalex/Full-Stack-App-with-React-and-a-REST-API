@@ -10,22 +10,18 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const context = useContext(contextAPI);
 
   return (
-    <Route>
-      { 
-          <Route 
-            {...rest}
-            render={props => context.authedUser ? (
-                      <Component {...props} />
-                      ) : (
-                      <Redirect to={{
-                      pathname: '/signin',
-                      state: { from: props.location },
-                      }}/>
-                      )       
-                    }
-          />
-      }
-    </Route>
+    <Route 
+      {...rest}
+      render={props => context.authedUser ? (
+                <Component {...props} />
+                ) : (
+                <Redirect to={{
+                pathname: '/signin',
+                state: { from: props.location },
+                }}/>
+                )       
+              }
+    />
   )
 }
 

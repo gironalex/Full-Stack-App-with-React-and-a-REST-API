@@ -28,13 +28,14 @@ const UpdateCourse = () => {
             .then(res => {
               if (!res) {
                   history.push('/notfound');
-              } else if (res & res.id === userId) {
+              } else if (res && res.userId === userId) {
                  setTitle(res.title);
                  setDescription(res.description);
                  setEstimatedTime(res.estimatedTime);
                  setMaterialsNeeded(res.materialsNeeded);
               } else {
-                  history.push('forbidden');
+                  history.push('/forbidden');
+                  console.log(res);
               }
             })
             .catch( () => history.push('/error'));
@@ -55,7 +56,7 @@ const UpdateCourse = () => {
 
         if (signedIn){
           // Posting course data to the database
-          context.data.UpdateCourse(course, id, signedIn.emailAddress, signedIn.password)
+          context.data.updateCourse(course, id, signedIn.emailAddress, signedIn.password)
             .then( (errors) => {
               if (errors.length) {
                 setErrors(errors);
@@ -114,7 +115,7 @@ const UpdateCourse = () => {
               <textarea id="materialsNeeded" name="materialsNeeded" value={materialsNeeded} onChange={(e)=> setMaterialsNeeded(e.target.value)}></textarea>
             </div>
           </div>
-            <button className="button" type="submit" onClick={handleSubmit}>Create Course</button>
+            <button className="button" type="submit" onClick={handleSubmit}>Update Course</button>
             <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
         </form>
       </div>

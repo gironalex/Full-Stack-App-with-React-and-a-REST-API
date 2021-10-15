@@ -45,11 +45,10 @@ const CreateCourse = () => {
         if (signedIn){
           // Posting course data to the database
           context.data.createNewCourse(course, signedIn.emailAddress, signedIn.password)
-            .then( errors => {
-              if (errors.length) {
+           .then( (errors) => {
+             if (errors.length) {
                 setErrors(errors);
-              } else  {
-                // 
+             } else {
                 context.data.getCourses()
                   .then( courseData => {
                     let createdCourse = courseData[courseData.length-1];

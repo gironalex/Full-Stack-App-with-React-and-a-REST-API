@@ -19,17 +19,18 @@ const DeleteCourse = () => {
     const history = useHistory();
     const { id } = useParams();
 
-    // Fetching Course to Update
+    // Fetching Course to Delete
     useEffect(() => {
         context.data.getCourseDetails(id)
             .then(res => {
               if (!res) {
                   history.push('/notfound');
-              } else if (res & res.id === userId) {
+              } else if (res && res.userId === userId) {
                   setUser(res.User);
                   setCourseData(res);
               } else {
-                  history.push('forbidden');
+                  history.push('/forbidden');
+                  console.log(res);
               }
             })
             .catch( () => history.push('/error'));
