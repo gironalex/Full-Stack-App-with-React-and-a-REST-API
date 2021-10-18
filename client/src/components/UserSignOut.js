@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { contextAPI } from '../Context.js';
 
 // Sign Out Component
-const SignOut = () => {
+const UserSignOut = () => {
     
     // Data from Context
     const context = useContext(contextAPI);
@@ -16,4 +16,4 @@ const SignOut = () => {
     return <Redirect to="/" />
 }
 
-export default SignOut;
+export default UserSignOut;

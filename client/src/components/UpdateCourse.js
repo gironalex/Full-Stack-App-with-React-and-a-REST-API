@@ -75,7 +75,7 @@ const UpdateCourse = () => {
     // Handle Cancel Button
     const handleCancel = (e) => {
         e.preventDefault();
-        history.push('/');
+        history.push(`/courses/${id}`);
     }
 
     return (

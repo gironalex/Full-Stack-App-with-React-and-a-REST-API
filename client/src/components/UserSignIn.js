@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { contextAPI } from '../Context.js';
 
 // Sign Component 
-const SignIn = () => {
+const UserSignIn = () => {
     
     // Setting State
     const [emailAddress, setEmailAddress] = useState("");
@@ -86,4 +86,4 @@ const SignIn = () => {
     );
 }
         
-export default SignIn;
+export default UserSignIn;

@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { contextAPI } from '../Context.js';
 
 // SignUp Component
-const SignUp = () => {
+const UserSignUp = () => {
 
     // Setting State
     const [firstName, setFirstName] = useState("");
@@ -98,4 +98,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+export default UserSignUp;

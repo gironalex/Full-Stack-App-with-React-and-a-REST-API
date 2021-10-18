@@ -12,9 +12,9 @@ import CoursesDetail from './CoursesDetail';
 import CreateCourse from './CreateCourse.js';
 import UpdateCourse from './UpdateCourse';
 import DeleteCourse from './DeleteCourse';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import SignOut from './SignOut';
+import UserSignIn from './UserSignIn';
+import SignUp from './UserSignUp';
+import UserSignOut from './UserSignOut';
 import PrivateRoute from '../PrivateRoute';
 import NotFound from './NotFound';
 import Error from './Error';
@@ -34,9 +34,9 @@ class App extends Component {
             <PrivateRoute path= "/courses/:id/update" component={UpdateCourse} />
             <PrivateRoute path= "/courses/:id/delete" component={DeleteCourse} />
             <Route path= "/courses/:id" component={CoursesDetail} />
-            <Route path= "/signin" component={SignIn} />
+            <Route path= "/signin" component={UserSignIn} />
             <Route path= "/signup" component={SignUp} />
-            <Route path= "/signout" component={SignOut} />
+            <Route path= "/signout" component={UserSignOut} />
             <Route path= "/notfound" component={NotFound} />
             <Route path= "/forbidden" component={Forbidden} />
             <Route path= "/error" component={Error} />
