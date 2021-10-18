@@ -17,7 +17,6 @@ const UserSignIn = () => {
 
     // URL History
     const history = useHistory();
-    //const {from} = history.location.state || {from: {pathname: '/'}};
     
     // Handle Form Submission
     const handleSubmit = (e) => {

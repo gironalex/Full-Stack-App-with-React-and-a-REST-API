@@ -34,10 +34,10 @@ const CoursesDetail = () => {
     }, [id, context.data, history])
 
 
-    /**
+    /*********
      * TESTING
-     */
-    console.log(signedIn);
+     *********/
+    // console.log(signedIn);
 
     return (
         <main>

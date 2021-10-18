@@ -21,9 +21,9 @@ const CreateCourse = () => {
     /*********
      * TESTING
      *********/
-    console.log(context.authedUser);
-    console.log(signedIn.password);
-    console.log(userId);
+    // console.log(context.authedUser);
+    // console.log(signedIn.password);
+    // console.log(userId);
 
     // URL History
     const history = useHistory();
