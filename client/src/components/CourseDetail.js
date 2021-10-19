@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { contextAPI } from '../Context.js';
 
 // Courses Component - Renders all courses at the home '/' route
-const CoursesDetail = () => {
+const CourseDetail = () => {
         
     // Setting State
     const [ user, setUser] = useState({});
@@ -86,4 +86,4 @@ const CoursesDetail = () => {
     )
 }
 
-export default CoursesDetail;
+export default CourseDetail;

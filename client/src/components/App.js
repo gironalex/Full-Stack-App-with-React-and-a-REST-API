@@ -8,7 +8,7 @@ import {
 // Import components
 import Header from './Header.js';
 import Courses from './Courses.js';
-import CoursesDetail from './CoursesDetail';
+import CourseDetail from './CourseDetail';
 import CreateCourse from './CreateCourse.js';
 import UpdateCourse from './UpdateCourse';
 import DeleteCourse from './DeleteCourse';
@@ -33,7 +33,7 @@ class App extends Component {
             <PrivateRoute path= "/courses/create" component={CreateCourse}/>
             <PrivateRoute path= "/courses/:id/update" component={UpdateCourse} />
             <PrivateRoute path= "/courses/:id/delete" component={DeleteCourse} />
-            <Route path= "/courses/:id" component={CoursesDetail} />
+            <Route path= "/courses/:id" component={CourseDetail} />
             <Route path= "/signin" component={UserSignIn} />
             <Route path= "/signup" component={SignUp} />
             <Route path= "/signout" component={UserSignOut} />
